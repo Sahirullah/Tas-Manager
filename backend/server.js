@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
-const connectDB = require('./config/database');
+// Use mock database by default (no MongoDB needed)
+const mockDB = require('./config/mockDatabase');
 const taskRoutes = require('./routes/taskRoutes');
 const errorHandler = require('./middleware/errorHandler');
 
@@ -24,11 +25,19 @@ app.get('/api/health', (req, res) => {
 // Error handler middleware (must be last)
 app.use(errorHandler);
 
-// Connect to MongoDB and start server
-connectDB().then(() => {
+// Start server with mock database
+try {
+  console.log('🚀 Starting Task Manager API...');
+  console.log('📦 Using Mock Database (In-Memory Storage)');
+  console.log('⚠️  Note: Data will be lost when server restarts');
+  
   app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`✅ Server running on port ${PORT}`);
+    console.log(`🌐 Visit: http://localhost:${PORT}/api/health`);
   });
-});
+} catch (error) {
+  console.error('❌ Server startup error:', error);
+  process.exit(1);
+}
 
 module.exports = app;

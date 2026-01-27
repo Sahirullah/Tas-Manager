@@ -8,7 +8,7 @@ const {
   deleteTask,
   toggleTaskCompletion,
   getTaskStats
-} = require('../controllers/taskController');
+} = require('../controllers/taskController-mock');
 
 const router = express.Router();
 

@@ -7,13 +7,14 @@
 **Terminal 1 - Backend**:
 ```bash
 cd backend
-npm run dev:mock
+npm run dev
 ```
 
 Wait for:
 ```
-✅ Mock Database Connected Successfully
-Server running on port 5000
+🚀 Starting Task Manager API...
+📦 Using Mock Database (In-Memory Storage)
+✅ Server running on port 5000
 ```
 
 **Terminal 2 - Frontend**:
