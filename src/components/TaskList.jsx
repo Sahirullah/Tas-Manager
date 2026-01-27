@@ -6,7 +6,7 @@ function TaskList({ tasks, onUpdateTask, onDeleteTask, onToggleCompletion }) {
     <div className="task-list">
       {tasks.map(task => (
         <TaskItem
-          key={task.id}
+          key={task._id}
           task={task}
           onUpdate={onUpdateTask}
           onDelete={onDeleteTask}

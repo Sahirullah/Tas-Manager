@@ -7,7 +7,7 @@ function TaskItem({ task, onUpdate, onDelete, onToggleCompletion }) {
 
   const handleSaveEdit = () => {
     if (editValue.trim() && editValue !== task.title) {
-      onUpdate(task.id, editValue.trim())
+      onUpdate(task._id, editValue.trim())
     }
     setIsEditing(false)
   }
@@ -32,7 +32,7 @@ function TaskItem({ task, onUpdate, onDelete, onToggleCompletion }) {
           type="checkbox"
           className="task-checkbox"
           checked={task.completed}
-          onChange={() => onToggleCompletion(task.id)}
+          onChange={() => onToggleCompletion(task._id)}
           aria-label={`Mark "${task.title}" as ${task.completed ? 'incomplete' : 'complete'}`}
         />
         
@@ -50,7 +50,7 @@ function TaskItem({ task, onUpdate, onDelete, onToggleCompletion }) {
           <span className="task-title">{task.title}</span>
         )}
         
-        <span className="task-date">{task.createdAt}</span>
+        <span className="task-date">{new Date(task.createdAt).toLocaleDateString()}</span>
       </div>
 
       <div className="task-actions">
@@ -82,7 +82,7 @@ function TaskItem({ task, onUpdate, onDelete, onToggleCompletion }) {
             </button>
             <button
               className="action-button delete-button"
-              onClick={() => onDelete(task.id)}
+              onClick={() => onDelete(task._id)}
               title="Delete task"
             >
               🗑

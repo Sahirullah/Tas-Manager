@@ -329,3 +329,84 @@ body::before {
     font-size: 1rem;
   }
 }
+/* Loading and Error States */
+.loading-state {
+  text-align: center;
+  padding: 60px 40px;
+  color: #64748b;
+}
+
+.loading-state p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.error-banner {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border: 2px solid #fecaca;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+}
+
+.error-banner p {
+  color: #dc2626;
+  font-weight: 500;
+  margin: 0;
+}
+
+.retry-button {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.retry-button:hover {
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.3);
+}
+
+@media (max-width: 768px) {
+  .error-banner {
+    margin: 15px 25px;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .loading-state {
+    padding: 40px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-banner {
+    margin: 10px 15px;
+    padding: 15px;
+  }
+
+  .loading-state {
+    padding: 30px 15px;
+  }
+}
