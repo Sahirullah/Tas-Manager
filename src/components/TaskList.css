@@ -1,0 +1,53 @@
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-height: 700px;
+  overflow-y: auto;
+  background: white;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1e40af, #0c4a6e);
+  border-radius: 5px;
+  border: 2px solid #f1f5f9;
+}
+
+.task-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #1e3a8a, #0a3a5e);
+}
+
+/* Firefox scrollbar */
+.task-list {
+  scrollbar-color: #1e40af #f1f5f9;
+  scrollbar-width: thin;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .task-list {
+    max-height: 600px;
+  }
+
+  .task-list::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-list {
+    max-height: 500px;
+  }
+
+  .task-list::-webkit-scrollbar {
+    width: 6px;
+  }
+}
